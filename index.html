@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anika Akter Toni | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         /* Light Theme Variables */
         :root {
@@ -17,6 +17,8 @@
             --border-color: #F0E0E0;
             --shadow: 0 10px 30px rgba(0,0,0,0.05);
             --arch-bg: #F3CACA;
+            --purple-text: #7D3C98;
+            --purple-bg: #F4ECF7;
         }
 
         /* Dark Theme Variables */
@@ -30,6 +32,8 @@
             --border-color: #3A2B2B;
             --shadow: 0 10px 30px rgba(0,0,0,0.4);
             --arch-bg: #3A2323;
+            --purple-text: #D2B4DE;
+            --purple-bg: #3c1e47;
         }
 
         html {
@@ -150,7 +154,52 @@
             font-size: 15px;
         }
 
-        /* Hero Section */
+        /* Hero Section additions */
+        .availability-badge {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--purple-bg);
+            color: var(--purple-text);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+            transition: all 0.4s ease;
+        }
+        .bullet {
+            margin-right: 8px;
+            font-size: 18px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        .core-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 35px;
+        }
+        .stack-tag {
+            background-color: transparent;
+            border: 1px solid var(--primary-pink);
+            color: var(--text-dark);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .stack-tag:hover {
+            background-color: var(--primary-pink);
+            color: #FFFFFF;
+        }
+
         .hero {
             display: flex;
             align-items: center;
@@ -163,11 +212,11 @@
         .hero-text h1 {
             font-size: 54px;
             line-height: 1.2;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
         .hero-text p {
             color: var(--text-light);
-            margin-bottom: 35px;
+            margin-bottom: 25px;
             font-size: 16px;
             max-width: 90%;
         }
@@ -423,13 +472,16 @@
                 padding: 20px 5%;
             }
             .hero {
-                flex-direction: column-reverse; /* Puts image above text on mobile */
+                flex-direction: column-reverse; 
                 text-align: center;
                 padding: 40px 5%;
                 gap: 40px;
             }
+            .core-stack {
+                justify-content: center;
+            }
             .hero-text h1 { font-size: 40px; }
-            .hero-text p { max-width: 100%; margin: 0 auto 30px auto; }
+            .hero-text p { max-width: 100%; margin: 0 auto 25px auto; }
             .hero-image { justify-content: center; width: 100%; }
             .arch-img { height: 400px; max-width: 300px; }
             .section { padding: 60px 5%; }
@@ -464,8 +516,18 @@
 
     <section id="home" class="hero">
         <div class="hero-text">
+            <div class="availability-badge"><span class="bullet">•</span> Open to opportunities</div>
             <h1>Dynamic Marketing & PR Professional</h1>
             <p>I am an adaptable and motivated individual specializing in social media management, content creation, and business development. I am passionate about applying creative problem-solving and coordinating projects to drive organizational growth.</p>
+            
+            <div class="core-stack">
+                <span class="stack-tag">Marketing</span>
+                <span class="stack-tag">Content Management</span>
+                <span class="stack-tag">Social Media Strategy</span>
+                <span class="stack-tag">Business Development</span>
+                <span class="stack-tag">Project Coordination</span>
+            </div>
+
             <a href="#experience" class="btn">View My Work</a>
         </div>
         <div class="hero-image">
@@ -576,19 +638,19 @@
             <div class="column-box">
                 <h3 style="color: var(--primary-pink); margin-top: 0;">Awards & Leadership</h3>
                 <div class="list-item">
-                    <strong>Campus Ambassador Recognitions</strong>
+                    <strong>1. Campus Ambassador Recognitions</strong>
                     TEDxUttara 2025, YSSE, Skill Catalyst, Creative IT, ILC, AmarGhorBD.
                 </div>
                 <div class="list-item">
-                    <strong>YSSE Awards</strong>
-                    Best Intern of the Batch, Best Campus Ambassador, Best Team Leader.
+                    <strong>2. YSSE Awards</strong>
+                    Best Intern of the Batch, Best intern of the week, Best Campus Ambassador, Best Team Leader, Best team contributor.
                 </div>
                 <div class="list-item">
-                    <strong>Leadership Roles</strong>
-                    Rotaract Club (Content Writer & Board Executive), Leo Club (Coordinator).
+                    <strong>3. Leadership Roles</strong>
+                    Rotaract Club of Dhaka Dynamic (Content Writer & Board Executive), Leo Club of Dhaka Platinum Unique (Sister Leo Coordinator), and BUBT Business, Social Welfare Club & Career Guidance Office (Facilitator).
                 </div>
                 <div class="list-item">
-                    <strong>Competitions & Scholarships</strong>
+                    <strong>4. Competitions & Scholarships</strong>
                     70% Award ISCEA Global Case Competition, 3rd Place Ad-Making (BUBT).
                 </div>
             </div>
@@ -598,7 +660,7 @@
     <footer id="contact">
         <h2>Let's Create Something Great</h2>
         <p>Email: anikaaktertonni90@gmail.com</p>
-        <p>Mirpur, Dhaka 1216</p>
+        <p>Rupnagar Residential Area, Mirpur 2, Dhaka 1216</p>
         <br>
         <a href="https://linkedin.com/in/anikaaktertonni" target="_blank" class="btn">Connect on LinkedIn</a>
     </footer>
