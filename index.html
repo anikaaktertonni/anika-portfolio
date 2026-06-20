@@ -1,19 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anika Akter Toni | Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
+        /* Light Theme Variables */
         :root {
-            --bg-color: #FFF6F3; /* Soft peach/cream background */
-            --primary-pink: #D48C8C; /* Muted rose pink */
-            --accent-dark: #4A1525; /* Deep burgundy for accents */
+            --bg-color: #FFF6F3;
+            --surface-color: #FFFFFF;
+            --primary-pink: #D48C8C;
+            --accent-dark: #4A1525;
             --text-dark: #3A2B2B;
             --text-light: #6E5C5C;
-            --white: #FFFFFF;
+            --border-color: #F0E0E0;
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+            --arch-bg: #F3CACA;
         }
+
+        /* Dark Theme Variables */
+        [data-theme="dark"] {
+            --bg-color: #1A1212;
+            --surface-color: #261A1A;
+            --primary-pink: #E0A0A0;
+            --accent-dark: #F3CACA;
+            --text-dark: #FDFBFB;
+            --text-light: #C4B5B5;
+            --border-color: #3A2B2B;
+            --shadow: 0 10px 30px rgba(0,0,0,0.4);
+            --arch-bg: #3A2323;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             background-color: var(--bg-color);
@@ -21,20 +43,25 @@
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            transition: background-color 0.4s ease, color 0.4s ease;
         }
+
         h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
             font-weight: 600;
             color: var(--text-dark);
+            transition: color 0.4s ease;
         }
         
-        /* Navigation */
+        /* Navigation & Header */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 25px 10%;
             background-color: transparent;
+            flex-wrap: wrap;
+            gap: 20px;
         }
         .logo {
             font-size: 26px;
@@ -46,14 +73,61 @@
             gap: 8px;
         }
         .logo span { color: var(--primary-pink); }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
         nav a {
-            margin: 0 20px;
             text-decoration: none;
             color: var(--text-dark);
             font-size: 14px;
             transition: color 0.3s;
+            font-weight: 500;
         }
         nav a:hover { color: var(--primary-pink); }
+
+        /* Dark Mode Toggle Switch */
+        .theme-toggle {
+            background: var(--surface-color);
+            border: 2px solid var(--border-color);
+            border-radius: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            padding: 5px;
+            width: 60px;
+            height: 30px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .theme-toggle .icon {
+            font-size: 14px;
+            z-index: 1;
+            width: 50%;
+            text-align: center;
+        }
+        .theme-toggle .ball {
+            position: absolute;
+            background: var(--primary-pink);
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            left: 4px;
+            transition: transform 0.3s ease;
+        }
+        [data-theme="dark"] .theme-toggle .ball {
+            transform: translateX(29px);
+        }
 
         /* General Section Styling */
         .section {
@@ -85,11 +159,10 @@
         }
         .hero-text {
             flex: 1;
-            position: relative;
         }
         .hero-text h1 {
             font-size: 54px;
-            line-height: 1.1;
+            line-height: 1.2;
             margin-bottom: 25px;
         }
         .hero-text p {
@@ -100,32 +173,38 @@
         }
         .btn {
             background-color: var(--primary-pink);
-            color: var(--white);
+            color: #FFFFFF;
             padding: 14px 35px;
             text-decoration: none;
             border-radius: 30px;
             font-size: 15px;
             font-weight: 500;
             box-shadow: 0 4px 15px rgba(212, 140, 140, 0.4);
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
             display: inline-block;
+            border: none;
+            cursor: pointer;
         }
-        .btn:hover { transform: translateY(-3px); }
+        .btn:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 6px 20px rgba(212, 140, 140, 0.6);
+        }
         
         .hero-image {
             flex: 1;
             display: flex;
             justify-content: flex-end;
-            position: relative;
         }
         .arch-container {
             position: relative;
-            background-color: #F3CACA;
+            background-color: var(--arch-bg);
             border-radius: 200px 200px 0 0;
             padding: 20px 20px 0 20px;
+            transition: background-color 0.4s ease;
         }
         .arch-img {
-            width: 380px;
+            width: 100%;
+            max-width: 380px;
             height: 500px;
             object-fit: cover;
             border-radius: 190px 190px 0 0;
@@ -136,17 +215,22 @@
         .stats-wrapper {
             display: flex;
             justify-content: center;
-            gap: 40px;
+            gap: 30px;
             margin-top: 20px;
+            width: 100%;
+            flex-wrap: wrap;
         }
         .stat-card {
-            background: var(--white);
-            padding: 25px 45px;
+            background: var(--surface-color);
+            padding: 25px 40px;
             border-radius: 30px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            min-width: 120px;
+            box-shadow: var(--shadow);
+            flex: 1;
+            min-width: 200px;
+            transition: transform 0.3s ease, background-color 0.4s ease;
         }
+        .stat-card:hover { transform: translateY(-5px); }
         .stat-card h3 {
             color: var(--primary-pink);
             font-size: 36px;
@@ -163,27 +247,28 @@
         /* Core Competencies (Services) */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 30px;
             width: 100%;
         }
         .skill-card {
-            background: transparent;
+            background: var(--surface-color);
             padding: 35px 25px;
             border-radius: 25px;
             text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
         }
         .skill-card:hover, .skill-card.active {
             background: var(--primary-pink);
-            color: var(--white);
+            color: #FFFFFF;
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(212, 140, 140, 0.3);
+            border-color: var(--primary-pink);
         }
         .skill-card:hover p, .skill-card.active p, 
         .skill-card:hover h3, .skill-card.active h3 {
-            color: var(--white);
+            color: #FFFFFF;
         }
         .skill-card h3 {
             font-size: 20px;
@@ -192,6 +277,7 @@
         .skill-card p {
             font-size: 14px;
             color: var(--text-light);
+            transition: color 0.4s ease;
         }
 
         /* Experience Layout */
@@ -200,13 +286,6 @@
             gap: 60px;
             width: 100%;
             align-items: flex-start;
-        }
-        .exp-image {
-            flex: 1;
-            background-color: #F3CACA;
-            border-radius: 200px 200px 0 0;
-            padding: 20px 20px 0 20px;
-            max-width: 400px;
         }
         .exp-content {
             flex: 2;
@@ -226,6 +305,7 @@
             height: 15px;
             background: var(--accent-dark);
             border-radius: 50%;
+            transition: background-color 0.4s ease;
         }
         .timeline-item h4 {
             margin: 0 0 5px 0;
@@ -250,17 +330,20 @@
             display: flex;
             gap: 40px;
             width: 100%;
+            flex-wrap: wrap;
         }
         .column-box {
             flex: 1;
-            background: var(--white);
+            min-width: 300px;
+            background: var(--surface-color);
             padding: 40px;
             border-radius: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            box-shadow: var(--shadow);
+            transition: background-color 0.4s ease;
         }
         .list-item {
             margin-bottom: 20px;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid var(--border-color);
             padding-bottom: 15px;
         }
         .list-item:last-child {
@@ -274,25 +357,87 @@
             margin-bottom: 5px;
         }
 
-        /* Footer / Contact */
+        /* Footer */
         footer {
-            background-color: var(--accent-dark);
-            color: var(--white);
+            background-color: #3A2323;
+            color: #FFFFFF;
             text-align: center;
             padding: 60px 20px;
         }
         footer h2 {
-            color: var(--white);
+            color: #FFFFFF;
             margin-bottom: 20px;
         }
         footer p {
             opacity: 0.8;
             margin-bottom: 10px;
+            color: #FFFFFF;
         }
         footer .btn {
-            background-color: var(--white);
-            color: var(--accent-dark);
+            background-color: #FFFFFF;
+            color: #3A2323;
             margin-top: 20px;
+        }
+        footer .btn:hover {
+            background-color: var(--primary-pink);
+            color: #FFFFFF;
+        }
+
+        /* Scroll to Top Button */
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary-pink);
+            color: #FFFFFF;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            cursor: pointer;
+            border: none;
+        }
+        .scroll-top-btn.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .scroll-top-btn:hover {
+            transform: translateY(-5px);
+            background-color: var(--accent-dark);
+        }
+
+        /* --- MOBILE RESPONSIVENESS --- */
+        @media (max-width: 850px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px 5%;
+            }
+            .hero {
+                flex-direction: column-reverse; /* Puts image above text on mobile */
+                text-align: center;
+                padding: 40px 5%;
+                gap: 40px;
+            }
+            .hero-text h1 { font-size: 40px; }
+            .hero-text p { max-width: 100%; margin: 0 auto 30px auto; }
+            .hero-image { justify-content: center; width: 100%; }
+            .arch-img { height: 400px; max-width: 300px; }
+            .section { padding: 60px 5%; }
+            .section-header h2 { font-size: 32px; }
+            .stats-wrapper { flex-direction: column; }
+            .experience-container { flex-direction: column; }
+            .column-box { padding: 25px; }
+            .scroll-top-btn { bottom: 20px; right: 20px; width: 40px; height: 40px; font-size: 20px; }
         }
     </style>
 </head>
@@ -300,13 +445,21 @@
 
     <header>
         <div class="logo"><span>✦</span> Anika</div>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About Me</a>
-            <a href="#skills">Competencies</a>
-            <a href="#experience">Experience</a>
-            <a href="#contact">Contact</a>
-        </nav>
+        <div class="nav-container">
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#about">About Me</a>
+                <a href="#skills">Competencies</a>
+                <a href="#experience">Experience</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <!-- Dark Mode Toggle -->
+            <div class="theme-toggle" id="themeToggle">
+                <span class="icon">☀️</span>
+                <span class="icon">🌙</span>
+                <div class="ball"></div>
+            </div>
+        </div>
     </header>
 
     <section id="home" class="hero">
@@ -317,7 +470,6 @@
         </div>
         <div class="hero-image">
             <div class="arch-container">
-                <!-- Keep your profile.jpg here! -->
                 <img src="profile.jpg" alt="Anika Akter Toni" class="arch-img">
             </div>
         </div>
@@ -400,11 +552,11 @@
         </div>
     </section>
 
-    <section class="section" style="background-color: var(--white); width: 100%; box-sizing: border-box; padding-top: 80px;">
+    <section class="section">
         <div class="section-header">
             <h2>Academics & Accolades</h2>
         </div>
-        <div class="two-column" style="max-width: 1000px; margin: 0 auto;">
+        <div class="two-column">
             <div class="column-box">
                 <h3 style="color: var(--primary-pink); margin-top: 0;">Education</h3>
                 <div class="list-item">
@@ -445,11 +597,50 @@
 
     <footer id="contact">
         <h2>Let's Create Something Great</h2>
-        <p>Email: anikaaktertonni90@gmail.com</p>
-        <p>Mirpur, Dhaka 1216</p>
+        <p>Email: anikaaktertonni90@gmail.com | Phone: +8801680110773</p>
+        <p>Rupnagar Residential Area, Mirpur 2, Dhaka 1216</p>
         <br>
         <a href="https://linkedin.com/in/anikaaktertonni" target="_blank" class="btn">Connect on LinkedIn</a>
     </footer>
 
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top-btn" id="scrollTopBtn" title="Go to top">↑</button>
+
+    <!-- JavaScript for Interactive Features -->
+    <script>
+        // Dark Mode Toggle Logic
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+        
+        // Check local storage for saved theme, default to light
+        const savedTheme = localStorage.getItem('portfolioTheme') || 'light';
+        htmlElement.setAttribute('data-theme', savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('portfolioTheme', newTheme);
+        });
+
+        // Scroll to Top Logic
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
 </body>
 </html>
