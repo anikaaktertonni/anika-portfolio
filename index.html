@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anika Akter Toni | Portfolio</title>
+    
+    <!-- Custom Favicon (Letter A in Pink Theme) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23D48C8C'/><text x='50' y='50' font-family='sans-serif' font-size='60' font-weight='bold' fill='%234A1525' dominant-baseline='central' text-anchor='middle'>A</text></svg>">
+    
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         /* Light Theme Variables */
@@ -36,9 +40,7 @@
             --purple-bg: #3c1e47;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -57,6 +59,21 @@
             transition: color 0.4s ease;
         }
         
+        /* Blur Text Animation Styles */
+        .blur-word {
+            display: inline-block;
+            opacity: 0;
+            filter: blur(10px);
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, filter 0.6s ease-out, transform 0.6s ease-out;
+            white-space: pre;
+        }
+        .blur-word.in-view {
+            opacity: 1;
+            filter: blur(0);
+            transform: translateY(0);
+        }
+
         /* Navigation & Header */
         header {
             display: flex;
@@ -85,12 +102,7 @@
             flex-wrap: wrap;
             justify-content: center;
         }
-        nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
+        nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
         nav a {
             text-decoration: none;
             color: var(--text-dark);
@@ -114,12 +126,7 @@
             position: relative;
             transition: all 0.3s ease;
         }
-        .theme-toggle .icon {
-            font-size: 14px;
-            z-index: 1;
-            width: 50%;
-            text-align: center;
-        }
+        .theme-toggle .icon { font-size: 14px; z-index: 1; width: 50%; text-align: center; }
         .theme-toggle .ball {
             position: absolute;
             background: var(--primary-pink);
@@ -129,9 +136,7 @@
             left: 4px;
             transition: transform 0.3s ease;
         }
-        [data-theme="dark"] .theme-toggle .ball {
-            transform: translateX(29px);
-        }
+        [data-theme="dark"] .theme-toggle .ball { transform: translateX(29px); }
 
         /* General Section Styling */
         .section {
@@ -140,19 +145,9 @@
             flex-direction: column;
             align-items: center;
         }
-        .section-header {
-            text-align: center;
-            max-width: 700px;
-            margin-bottom: 50px;
-        }
-        .section-header h2 {
-            font-size: 42px;
-            margin-bottom: 15px;
-        }
-        .section-header p {
-            color: var(--text-light);
-            font-size: 15px;
-        }
+        .section-header { text-align: center; max-width: 700px; margin-bottom: 50px; }
+        .section-header h2 { font-size: 42px; margin-bottom: 15px; }
+        .section-header p { color: var(--text-light); font-size: 15px; }
 
         /* Hero Section additions */
         .availability-badge {
@@ -168,23 +163,10 @@
             letter-spacing: 0.5px;
             transition: all 0.4s ease;
         }
-        .bullet {
-            margin-right: 8px;
-            font-size: 18px;
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.3; }
-            100% { opacity: 1; }
-        }
+        .bullet { margin-right: 8px; font-size: 18px; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
 
-        .core-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 35px;
-        }
+        .core-stack { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 35px; }
         .stack-tag {
             background-color: transparent;
             border: 1px solid var(--primary-pink);
@@ -195,31 +177,12 @@
             font-weight: 500;
             transition: all 0.3s ease;
         }
-        .stack-tag:hover {
-            background-color: var(--primary-pink);
-            color: #FFFFFF;
-        }
+        .stack-tag:hover { background-color: var(--primary-pink); color: #FFFFFF; }
 
-        .hero {
-            display: flex;
-            align-items: center;
-            padding: 50px 10% 100px;
-            gap: 60px;
-        }
-        .hero-text {
-            flex: 1;
-        }
-        .hero-text h1 {
-            font-size: 54px;
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
-        .hero-text p {
-            color: var(--text-light);
-            margin-bottom: 25px;
-            font-size: 16px;
-            max-width: 90%;
-        }
+        .hero { display: flex; align-items: center; padding: 50px 10% 100px; gap: 60px; }
+        .hero-text { flex: 1; }
+        .hero-text h1 { font-size: 54px; line-height: 1.2; margin-bottom: 20px; }
+        .hero-text p { color: var(--text-light); margin-bottom: 25px; font-size: 16px; max-width: 90%; }
         .btn {
             background-color: var(--primary-pink);
             color: #FFFFFF;
@@ -234,16 +197,9 @@
             border: none;
             cursor: pointer;
         }
-        .btn:hover { 
-            transform: translateY(-3px); 
-            box-shadow: 0 6px 20px rgba(212, 140, 140, 0.6);
-        }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(212, 140, 140, 0.6); }
         
-        .hero-image {
-            flex: 1;
-            display: flex;
-            justify-content: flex-end;
-        }
+        .hero-image { flex: 1; display: flex; justify-content: flex-end; }
         .arch-container {
             position: relative;
             background-color: var(--arch-bg);
@@ -261,14 +217,7 @@
         }
 
         /* Stats & About */
-        .stats-wrapper {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 20px;
-            width: 100%;
-            flex-wrap: wrap;
-        }
+        .stats-wrapper { display: flex; justify-content: center; gap: 30px; margin-top: 20px; width: 100%; flex-wrap: wrap; }
         .stat-card {
             background: var(--surface-color);
             padding: 25px 40px;
@@ -280,26 +229,11 @@
             transition: transform 0.3s ease, background-color 0.4s ease;
         }
         .stat-card:hover { transform: translateY(-5px); }
-        .stat-card h3 {
-            color: var(--primary-pink);
-            font-size: 36px;
-            margin: 0 0 5px 0;
-        }
-        .stat-card p {
-            margin: 0;
-            color: var(--text-light);
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+        .stat-card h3 { color: var(--primary-pink); font-size: 36px; margin: 0 0 5px 0; }
+        .stat-card p { margin: 0; color: var(--text-light); font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
 
         /* Core Competencies (Services) */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 30px;
-            width: 100%;
-        }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; width: 100%; }
         .skill-card {
             background: var(--surface-color);
             padding: 35px 25px;
@@ -316,29 +250,13 @@
             border-color: var(--primary-pink);
         }
         .skill-card:hover p, .skill-card.active p, 
-        .skill-card:hover h3, .skill-card.active h3 {
-            color: #FFFFFF;
-        }
-        .skill-card h3 {
-            font-size: 20px;
-            margin-bottom: 15px;
-        }
-        .skill-card p {
-            font-size: 14px;
-            color: var(--text-light);
-            transition: color 0.4s ease;
-        }
+        .skill-card:hover h3, .skill-card.active h3 { color: #FFFFFF; }
+        .skill-card h3 { font-size: 20px; margin-bottom: 15px; }
+        .skill-card p { font-size: 14px; color: var(--text-light); transition: color 0.4s ease; }
 
         /* Experience Layout */
-        .experience-container {
-            display: flex;
-            gap: 60px;
-            width: 100%;
-            align-items: flex-start;
-        }
-        .exp-content {
-            flex: 2;
-        }
+        .experience-container { display: flex; gap: 60px; width: 100%; align-items: flex-start; }
+        .exp-content { flex: 2; }
         .timeline-item {
             margin-bottom: 35px;
             padding-left: 25px;
@@ -356,31 +274,12 @@
             border-radius: 50%;
             transition: background-color 0.4s ease;
         }
-        .timeline-item h4 {
-            margin: 0 0 5px 0;
-            font-size: 20px;
-            color: var(--accent-dark);
-        }
-        .timeline-item .date {
-            color: var(--primary-pink);
-            font-weight: 500;
-            font-size: 14px;
-            margin-bottom: 10px;
-            display: inline-block;
-        }
-        .timeline-item p {
-            margin: 0;
-            font-size: 14px;
-            color: var(--text-light);
-        }
+        .timeline-item h4 { margin: 0 0 5px 0; font-size: 20px; color: var(--accent-dark); }
+        .timeline-item .date { color: var(--primary-pink); font-weight: 500; font-size: 14px; margin-bottom: 10px; display: inline-block; }
+        .timeline-item p { margin: 0; font-size: 14px; color: var(--text-light); }
 
         /* Education & Awards Lists */
-        .two-column {
-            display: flex;
-            gap: 40px;
-            width: 100%;
-            flex-wrap: wrap;
-        }
+        .two-column { display: flex; gap: 40px; width: 100%; flex-wrap: wrap; }
         .column-box {
             flex: 1;
             min-width: 300px;
@@ -390,47 +289,16 @@
             box-shadow: var(--shadow);
             transition: background-color 0.4s ease;
         }
-        .list-item {
-            margin-bottom: 20px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 15px;
-        }
-        .list-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        .list-item strong {
-            display: block;
-            color: var(--accent-dark);
-            margin-bottom: 5px;
-        }
+        .list-item { margin-bottom: 20px; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; }
+        .list-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .list-item strong { display: block; color: var(--accent-dark); margin-bottom: 5px; }
 
         /* Footer */
-        footer {
-            background-color: #3A2323;
-            color: #FFFFFF;
-            text-align: center;
-            padding: 60px 20px;
-        }
-        footer h2 {
-            color: #FFFFFF;
-            margin-bottom: 20px;
-        }
-        footer p {
-            opacity: 0.8;
-            margin-bottom: 10px;
-            color: #FFFFFF;
-        }
-        footer .btn {
-            background-color: #FFFFFF;
-            color: #3A2323;
-            margin-top: 20px;
-        }
-        footer .btn:hover {
-            background-color: var(--primary-pink);
-            color: #FFFFFF;
-        }
+        footer { background-color: #3A2323; color: #FFFFFF; text-align: center; padding: 60px 20px; }
+        footer h2 { color: #FFFFFF; margin-bottom: 20px; }
+        footer p { opacity: 0.8; margin-bottom: 10px; color: #FFFFFF; }
+        footer .btn { background-color: #FFFFFF; color: #3A2323; margin-top: 20px; }
+        footer .btn:hover { background-color: var(--primary-pink); color: #FFFFFF; }
 
         /* Scroll to Top Button */
         .scroll-top-btn {
@@ -455,31 +323,14 @@
             cursor: pointer;
             border: none;
         }
-        .scroll-top-btn.show {
-            opacity: 1;
-            visibility: visible;
-        }
-        .scroll-top-btn:hover {
-            transform: translateY(-5px);
-            background-color: var(--accent-dark);
-        }
+        .scroll-top-btn.show { opacity: 1; visibility: visible; }
+        .scroll-top-btn:hover { transform: translateY(-5px); background-color: var(--accent-dark); }
 
-        /* --- MOBILE RESPONSIVENESS --- */
+        /* Mobile Responsiveness */
         @media (max-width: 850px) {
-            header {
-                flex-direction: column;
-                text-align: center;
-                padding: 20px 5%;
-            }
-            .hero {
-                flex-direction: column-reverse; 
-                text-align: center;
-                padding: 40px 5%;
-                gap: 40px;
-            }
-            .core-stack {
-                justify-content: center;
-            }
+            header { flex-direction: column; text-align: center; padding: 20px 5%; }
+            .hero { flex-direction: column-reverse; text-align: center; padding: 40px 5%; gap: 40px; }
+            .core-stack { justify-content: center; }
             .hero-text h1 { font-size: 40px; }
             .hero-text p { max-width: 100%; margin: 0 auto 25px auto; }
             .hero-image { justify-content: center; width: 100%; }
@@ -505,7 +356,6 @@
                 <a href="#experience">Experience</a>
                 <a href="#contact">Contact</a>
             </nav>
-            <!-- Dark Mode Toggle -->
             <div class="theme-toggle" id="themeToggle">
                 <span class="icon">☀️</span>
                 <span class="icon">🌙</span>
@@ -517,7 +367,7 @@
     <section id="home" class="hero">
         <div class="hero-text">
             <div class="availability-badge"><span class="bullet">•</span> Open to opportunities</div>
-            <h1>Dynamic Marketing & PR Professional</h1>
+            <h1 class="animate-title">Dynamic Marketing & PR Professional</h1>
             <p>I am an adaptable and motivated individual specializing in social media management, content creation, and business development. I am passionate about applying creative problem-solving and coordinating projects to drive organizational growth.</p>
             
             <div class="core-stack">
@@ -539,7 +389,7 @@
 
     <section id="about" class="section">
         <div class="section-header">
-            <h2>Welcome To My World</h2>
+            <h2 class="animate-title">Welcome To My World</h2>
             <p>Balancing academic rigor with active community engagement and professional internships, I consistently strive to bridge the gap between theory and practical application.</p>
         </div>
         <div class="stats-wrapper">
@@ -560,7 +410,7 @@
 
     <section id="skills" class="section">
         <div class="section-header">
-            <h2>We Can Help Transform You</h2>
+            <h2 class="animate-title">We Can Help Transform You</h2>
             <p>My diverse skill set enables me to adapt quickly and deliver results across multiple facets of business operations.</p>
         </div>
         <div class="skills-grid">
@@ -585,7 +435,7 @@
 
     <section id="experience" class="section">
         <div class="section-header">
-            <h2>Proving My Expertise</h2>
+            <h2 class="animate-title">Proving My Expertise</h2>
             <p>A track record of building strong customer relationships and executing successful brand promotions.</p>
         </div>
         <div class="experience-container">
@@ -616,7 +466,7 @@
 
     <section class="section">
         <div class="section-header">
-            <h2>Academics & Accolades</h2>
+            <h2 class="animate-title">Academics & Accolades</h2>
         </div>
         <div class="two-column">
             <div class="column-box">
@@ -658,37 +508,31 @@
     </section>
 
     <footer id="contact">
-        <h2>Let's Create Something Great</h2>
+        <h2 class="animate-title">Let's Create Something Great</h2>
         <p>Email: anikaaktertonni90@gmail.com</p>
         <p>Rupnagar Residential Area, Mirpur 2, Dhaka 1216</p>
         <br>
         <a href="https://linkedin.com/in/anikaaktertonni" target="_blank" class="btn">Connect on LinkedIn</a>
     </footer>
 
-    <!-- Scroll to Top Button -->
     <button class="scroll-top-btn" id="scrollTopBtn" title="Go to top">↑</button>
 
-    <!-- JavaScript for Interactive Features -->
     <script>
         // Dark Mode Toggle Logic
         const themeToggle = document.getElementById('themeToggle');
         const htmlElement = document.documentElement;
-        
-        // Check local storage for saved theme, default to light
         const savedTheme = localStorage.getItem('portfolioTheme') || 'light';
         htmlElement.setAttribute('data-theme', savedTheme);
 
         themeToggle.addEventListener('click', () => {
             const currentTheme = htmlElement.getAttribute('data-theme');
             const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            
             htmlElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('portfolioTheme', newTheme);
         });
 
         // Scroll to Top Logic
         const scrollTopBtn = document.getElementById('scrollTopBtn');
-
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 300) {
                 scrollTopBtn.classList.add('show');
@@ -696,12 +540,38 @@
                 scrollTopBtn.classList.remove('show');
             }
         });
-
         scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Blur Text Animation Logic
+        document.querySelectorAll('.animate-title').forEach(title => {
+            const text = title.innerText;
+            title.innerHTML = '';
+            text.split(' ').forEach((word, index) => {
+                const span = document.createElement('span');
+                span.innerText = word + ' ';
+                span.className = 'blur-word';
+                // Delay each word slightly for the cascading effect
+                span.style.transitionDelay = `${index * 0.15}s`;
+                title.appendChild(span);
             });
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.blur-word').forEach(span => {
+                        span.classList.add('in-view');
+                    });
+                    // Unobserve after animating once so it stays visible
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+        document.querySelectorAll('.animate-title').forEach(title => {
+            observer.observe(title);
         });
     </script>
 </body>
