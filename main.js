@@ -53,3 +53,34 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.animate-title').forEach(title => {
     observer.observe(title);
 });
+// 3D Tilt Effect for Experience Cards
+const expCards = document.querySelectorAll('.exp-card');
+
+expCards.forEach(card => {
+    // When the mouse moves over the card, calculate the tilt
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left; 
+        const y = e.clientY - rect.top;  
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        // Adjust the multiplier (10) to increase or decrease the tilt intensity
+        const rotateX = ((y - centerY) / centerY) * -10; 
+        const rotateY = ((x - centerX) / centerX) * 10;
+        
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03) translateY(-10px)`;
+    });
+    
+    // Reset the card smoothly when the mouse leaves
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1) translateY(0)`;
+        card.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s ease, border-color 0.3s ease';
+    });
+    
+    // Remove the transition delay while moving so it snaps to the cursor instantly
+    card.addEventListener('mouseenter', () => {
+        card.style.transition = 'none'; 
+    });
+});
