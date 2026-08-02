@@ -55,20 +55,6 @@ h1, h2, h3, h4, h5 {
 }
 
 /* ----------------------------------- */
-/* Floating Background                 */
-/* ----------------------------------- */
-.floating-lines-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-    overflow: hidden;
-    pointer-events: none;
-}
-
-/* ----------------------------------- */
 /* Sticky Header                       */
 /* ----------------------------------- */
 .sticky-header {
@@ -660,7 +646,7 @@ h1, h2, h3, h4, h5 {
 /* ----------------------------------- */
 @media (max-width: 1050px) {
     .header-right-container {
-        display: none; /* Hide standard nav on smaller screens to prevent overlap, requires a hamburger menu to be fully mobile friendly */
+        display: none; 
     }
     .hero { 
         flex-direction: column-reverse; 
