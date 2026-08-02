@@ -18,17 +18,35 @@
     <!-- Floating Lines Background Container -->
     <div id="canvas-container" class="floating-lines-container"></div>
 
-    <header>
-        <div class="logo"><span>✦</span> Anika</div>
-        <div class="nav-container">
-            <nav>
-                <a href="#home">Home</a>
-                <a href="#about">About Me</a>
-                <a href="#skills">Competencies</a>
-                <a href="#experience">Experience</a>
-                <a href="#contact">Contact</a>
-            </nav>
-            <div class="theme-toggle" id="themeToggle">
+    <!-- NEW STICKY HEADER -->
+    <header id="main-header" class="sticky-header">
+        <nav class="nav-links">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#certificates">Certificates</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="header-actions">
+            <!-- LinkedIn Icon -->
+            <a href="https://linkedin.com/in/anikaaktertonni" target="_blank" class="icon-link" title="LinkedIn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+            <!-- Email Icon -->
+            <a href="mailto:anikaaktertonni90@gmail.com" class="icon-link" title="Email Me">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </a>
+            <!-- Download CV Icon Button -->
+            <a href="Anika Akter Toni CV.pdf" download class="icon-btn" title="Download CV">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            </a>
+            <!-- Let's Talk Button -->
+            <a href="#contact" class="lets-talk-btn">Let's Talk</a>
+            
+            <!-- Kept the theme toggle nicely tucked at the end -->
+            <div class="theme-toggle" id="themeToggle" style="margin-left: 10px;">
                 <span class="icon">☀️</span>
                 <span class="icon">🌙</span>
                 <div class="ball"></div>
@@ -80,31 +98,6 @@
         </div>
     </section>
 
-    <section id="skills" class="section">
-        <div class="section-header">
-            <h2 class="animate-title">We Can Help Transform You</h2>
-            <p>My diverse skill set enables me to adapt quickly and deliver results across multiple facets of business operations.</p>
-        </div>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <h3>Event Management</h3>
-                <p>Coordinating complex projects and supporting humanitarian activities efficiently as demonstrated through my Red Crescent volunteer work.</p>
-            </div>
-            <div class="skill-card active">
-                <h3>Content Creation</h3>
-                <p>Executing creative strategies, reel making, and writing captivating captions.</p>
-            </div>
-            <div class="skill-card">
-                <h3>Market Research</h3>
-                <p>Identifying opportunities, data tracking, and applying insights to sales targets.</p>
-            </div>
-            <div class="skill-card">
-                <h3>Leadership</h3>
-                <p>Guiding teams and fostering community engagement through active facilitation in Rotaract and Leo Clubs.</p>
-            </div>
-        </div>
-    </section>
-
     <section id="experience" class="section">
         <div class="section-header">
             <h2 class="animate-title">Proving My Expertise</h2>
@@ -146,9 +139,61 @@
         </div>
     </section>
 
-    <section class="section">
+    <section id="skills" class="section">
         <div class="section-header">
-            <h2 class="animate-title">Academics & Accolades</h2>
+            <h2 class="animate-title">We Can Help Transform You</h2>
+            <p>My diverse skill set enables me to adapt quickly and deliver results across multiple facets of business operations.</p>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Event Management</h3>
+                <p>Coordinating complex projects and supporting humanitarian activities efficiently as demonstrated through my Red Crescent volunteer work.</p>
+            </div>
+            <div class="skill-card active">
+                <h3>Content Creation</h3>
+                <p>Executing creative strategies, reel making, and writing captivating captions.</p>
+            </div>
+            <div class="skill-card">
+                <h3>Market Research</h3>
+                <p>Identifying opportunities, data tracking, and applying insights to sales targets.</p>
+            </div>
+            <div class="skill-card">
+                <h3>Leadership</h3>
+                <p>Guiding teams and fostering community engagement through active facilitation in Rotaract and Leo Clubs.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW PROJECTS SECTION -->
+    <section id="projects" class="section">
+        <div class="section-header">
+            <h2 class="animate-title">Projects & Leadership</h2>
+            <p>Guiding teams and fostering community engagement through active facilitation.</p>
+        </div>
+        <div class="two-column">
+            <div class="column-box" style="width: 100%;">
+                <h3 style="color: var(--primary-pink); margin-top: 0;">Extracurricular & Strategic Roles</h3>
+                <div class="list-item">
+                    <strong>Rotaract Club of Dhaka Dynamic</strong>
+                    Content Writer & Board Executive
+                </div>
+                <div class="list-item">
+                    <strong>Leo Club of Dhaka Platinum Unique</strong>
+                    Sister Leo Coordinator
+                </div>
+                <div class="list-item">
+                    <strong>BUBT Business & Social Welfare Club</strong>
+                    Career Guidance Office Facilitator
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW CERTIFICATES SECTION -->
+    <section id="certificates" class="section">
+        <div class="section-header">
+            <h2 class="animate-title">Certificates & Accolades</h2>
+            <p>Recognition for excellence in academics, leadership, and professional performance.</p>
         </div>
         <div class="two-column">
             <div class="column-box">
@@ -168,21 +213,17 @@
             </div>
             
             <div class="column-box">
-                <h3 style="color: var(--primary-pink); margin-top: 0;">Awards & Leadership</h3>
+                <h3 style="color: var(--primary-pink); margin-top: 0;">Awards & Honors</h3>
                 <div class="list-item">
-                    <strong>1. Campus Ambassador Recognitions</strong>
+                    <strong>Campus Ambassador Recognitions</strong>
                     TEDxUttara 2025, YSSE, Skill Catalyst, Creative IT, ILC, AmarGhorBD.
                 </div>
                 <div class="list-item">
-                    <strong>2. YSSE Awards</strong>
+                    <strong>YSSE Awards</strong>
                     Best Intern of the Batch, Best intern of the week, Best Campus Ambassador, Best Team Leader, Best team contributor.
                 </div>
                 <div class="list-item">
-                    <strong>3. Leadership Roles</strong>
-                    Rotaract Club of Dhaka Dynamic (Content Writer & Board Executive), Leo Club of Dhaka Platinum Unique (Sister Leo Coordinator), and BUBT Business, Social Welfare Club & Career Guidance Office (Facilitator).
-                </div>
-                <div class="list-item">
-                    <strong>4. Competitions & Scholarships</strong>
+                    <strong>Competitions & Scholarships</strong>
                     70% Award ISCEA Global Case Competition, 3rd Place Ad-Making (BUBT), First Runner-up (FGD), Semi-finalist (BizzMaster Quiz).
                 </div>
             </div>
