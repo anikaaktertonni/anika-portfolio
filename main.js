@@ -170,7 +170,7 @@ window.addEventListener('click', (e) => {
     const ctx = canvas.getContext('2d');
 
     // Configuration for a very subtle, elegant effect
-    const cellSize = 70;
+    const cellSize = 35;
     const color = '#D48C8C'; // Matches your primary pink
     const radius = 140;
     const holdTime = 400;
